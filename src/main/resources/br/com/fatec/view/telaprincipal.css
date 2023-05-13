@@ -1,0 +1,18 @@
+.hbox {
+    -fx-alignment: center;
+    -fx-spacing: 20px; /* espaçamento entre os elementos na vbox */
+    -fx-padding: 50px; /* margem em torno da vbox */
+}
+.button {
+    -fx-margin: 20px;
+    -fx-font-size: 20px;
+    -fx-padding: 10px;
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
