@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("/br/com/fatec/view/TelaPedidos"));
+        scene = new Scene(loadFXML("/br/com/fatec/view/TelaCadastroClientes"));
         stage.setScene(scene);
         
         //trocar o titulo
