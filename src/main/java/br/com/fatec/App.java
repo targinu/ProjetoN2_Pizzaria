@@ -17,11 +17,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("/br/com/fatec/view/TelaCadastroClientes"));
+        scene = new Scene(loadFXML("/br/com/fatec/view/TelaPedidosGestor"));
         stage.setScene(scene);
         
         //trocar o titulo
-        stage.setTitle("Pedidos");
+        stage.setTitle("ADS Pizza");
         
         stage.show();
     }

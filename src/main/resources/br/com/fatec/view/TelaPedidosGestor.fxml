@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fatec.controller.TelaPedidosController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fatec.controller.TelaPedidosGestorController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../java/br/com/fatec/images/ads_pizza_logo.png" />
+            <Image url="@ads_pizza_logo.png" />
          </image>
       </ImageView>
       <VBox fx:id="vbox" alignment="CENTER" layoutX="128.0" layoutY="160.0" prefHeight="204.0" prefWidth="357.0" spacing="20.0">
@@ -36,13 +36,13 @@
                </children>
             </HBox>
             <ListView fx:id="pedidoListView" prefHeight="200.0" prefWidth="300.0" />
-            <Button fx:id="btn_voltar" minHeight="25.0" prefHeight="25.0" stylesheets="@telapedidos.css" text="Voltar" />
          </children>
          <stylesheets>
             <URL value="@../../../../../../../../VA4_ProjetoN2Pizzaria/src/main/resources/br/com/fatec/view/telaprincipal.css" />
             <URL value="@telapedidos.css" />
          </stylesheets>         
       </VBox>
+      <Button fx:id="btn_voltar" minHeight="25.0" prefHeight="25.0" stylesheets="@telapedidos.css" text="Voltar" layoutX="10.0" layoutY="10.0" onAction="#voltar" />
    </children>
    <stylesheets>
       <URL value="@../../../../../../../../VA4_ProjetoN2Pizzaria/src/main/resources/br/com/fatec/view/telaprincipal.css" />

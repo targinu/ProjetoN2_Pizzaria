@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fatec.controller.TelaPizzasController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="226.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../java/br/com/fatec/images/ads_pizza_logo.png" />
+         </image>
+      </ImageView>
+      <VBox fx:id="vbox" alignment="CENTER" layoutX="132.0" layoutY="142.0" prefHeight="204.0" prefWidth="357.0" spacing="20.0">
+         <children>
+            <HBox alignment="CENTER" spacing="10" stylesheets="@telapizzas.css">
+               <children>
+                  <Label stylesheets="@telapizzas.css" text="Escolha o entregador:" textFill="WHITE" />
+                  <ComboBox minHeight="22.0" prefHeight="22.0" prefWidth="150.0" promptText="Motoca 1" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10" stylesheets="@telapizzas.css">
+               <children>
+                  <Label stylesheets="@telapizzas.css" text="Selecione o tamanho:" textFill="WHITE" />
+                  <CheckBox mnemonicParsing="false" text="Broto" />
+                  <CheckBox mnemonicParsing="false" text="Média" />
+                  <CheckBox mnemonicParsing="false" text="Grande" />
+               </children>
+            </HBox>
+            <Button fx:id="btn_voltar" minHeight="25.0" prefHeight="25.0" stylesheets="@telapizzas.css" text="Voltar" />
+         </children>
+         <stylesheets>
+            <URL value="@../../../../../../../../VA4_ProjetoN2Pizzaria/src/main/resources/br/com/fatec/view/telaprincipal.css" />
+            <URL value="@telapizzas.css" />
+         </stylesheets>         
+      </VBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../../../../../../../VA4_ProjetoN2Pizzaria/src/main/resources/br/com/fatec/view/telaprincipal.css" />
+      <URL value="@telapizzas.css" />
+   </stylesheets>
+</AnchorPane>

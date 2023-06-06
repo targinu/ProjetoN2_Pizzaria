@@ -5,24 +5,25 @@
  */
 package br.com.fatec.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
+import javafx.scene.control.Button;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * FXML Controller class
  *
  * @author targinu
  */
-public class TelaPedidosController implements Initializable {
-    
-     @FXML
-    private ListView<String> pedidoListView;
+public class TelaOpcoesClienteController implements Initializable {
+    @FXML
+    private Button btnFazerPedido;
 
+    @FXML
+    private Button btnListagemPedidos;
 
-    /**
+     /**
      * Initializes the controller class.
      * @param url
      * @param rb
@@ -30,7 +31,5 @@ public class TelaPedidosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        pedidoListView.getItems().addAll("Pedido 1", "Pedido 2", "Pedido 3", "Pedido 4");
-    }    
-    
+    }
 }
