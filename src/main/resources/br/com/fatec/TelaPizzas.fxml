@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="225.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../java/br/com/fatec/images/ads_pizza_logo.png" />
+            <Image url="@ads_pizza_logo.png" />
          </image>
       </ImageView>
       <VBox fx:id="vbox" alignment="CENTER" layoutX="128.0" layoutY="160.0" prefHeight="204.0" prefWidth="357.0" spacing="20.0">

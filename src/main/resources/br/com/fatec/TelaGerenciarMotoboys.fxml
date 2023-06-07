@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" stylesheets="@telaprincipal.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fatec.controller.TelaGerenciarMotoboysController">
+   <children>
+      <ImageView fitHeight="131.0" fitWidth="121.0" layoutX="240.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ads_pizza_logo.png" />
+         </image>
+      </ImageView>
+      <VBox fx:id="vbox" alignment="CENTER" layoutX="89.0" layoutY="160.0" prefHeight="204.0" prefWidth="422.0" spacing="20.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telaprincipal.css">
+               <children>
+                  <Label stylesheets="@telaprincipal.css" text="Placa da Moto:                  " textFill="WHITE" />
+                  <TextField fx:id="txtPlaca" prefHeight="25.0" prefWidth="117.0" />
+                  <Button fx:id="btnSalvar" mnemonicParsing="false" onAction="#btnSalvar_Click" prefHeight="25.0" prefWidth="147.0" text="Salvar para alterar">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telaprincipal.css">
+               <children>
+                  <Label stylesheets="@telaprincipal.css" text="Nome do Entregador:       " textFill="WHITE" />
+                  <TextField fx:id="txtNome" prefHeight="25.0" prefWidth="274.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telaprincipal.css">
+               <children>
+                  <Label stylesheets="@telaprincipal.css" text="Entregadores Registrados:" textFill="WHITE" />
+                  <ComboBox fx:id="cbMotoboy" prefHeight="25.0" prefWidth="274.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Button fx:id="btnCadastrar" mnemonicParsing="false" onAction="#btnCadastrar_Click" text="Cadastrar" />
+                  <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#btnExcluir_Click" text="Excluir" />
+                  <Button fx:id="btnAlterar" mnemonicParsing="false" onAction="#btnAlterar_Click" text="Alterar" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <stylesheets>
+            <URL value="@telaprincipal.css" />
+         </stylesheets>         
+      </VBox>
+      <Button fx:id="btnVoltar" layoutX="14.0" layoutY="14.0" minHeight="25.0" onAction="#btnVoltar_Click" prefHeight="25.0" stylesheets="@telaprincipal.css" text="Voltar" />
+   </children>
+</AnchorPane>

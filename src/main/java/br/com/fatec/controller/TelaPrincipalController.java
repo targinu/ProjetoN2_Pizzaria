@@ -1,47 +1,60 @@
 package br.com.fatec.controller;
 
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import br.com.fatec.App;
+import java.io.IOException;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
-public class TelaPrincipalController implements Initializable {
-
-    @FXML
-    private Button btnClientes;
+public class TelaPrincipalController {
 
     @FXML
-    private Button btnGestor;
+    private Button btnGerenciarPedidos;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
     @FXML
-    private void handleClientesButton(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/view/TelaOpcoesCliente.fxml"));
-        Parent root = loader.load();
+    private Button btnGerenciarPizzas;
 
-        Stage stage = (Stage) btnClientes.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+    @FXML
+    private Button btnGerenciarMotoboys;
+
+    @FXML
+    private Button btnConsultarPedidos;
+
+    @FXML
+    private Button btnSair;
+
+    @FXML
+    private void handleBtnGerenciarPedidos(ActionEvent event) {
     }
 
     @FXML
-    private void handleGestorButton(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/br/com/fatec/view/TelaOpcoesGestor.fxml"));
-        Parent root = loader.load();
-
-        Stage stage = (Stage) btnGestor.getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+    private void handleBtnGerenciarPizzas(ActionEvent event) {
     }
+
+    @FXML
+    private void btnGerenciarMotoboys_Click(ActionEvent event) {
+        String fxml = "TelaGerenciarMotoboys";
+        try {
+            
+            App.setRoot(fxml);  
+        } catch (IOException ex) {
+            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
+        } 
+    }
+
+    @FXML
+    private void handleBtnConsultarPedidos(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnSair_Click(ActionEvent event) {
+        Stage stage = (Stage) btnSair.getScene().getWindow();
+        stage.close();
+    }
+
 }

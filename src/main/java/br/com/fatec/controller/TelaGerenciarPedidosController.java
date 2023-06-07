@@ -14,7 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
-public class TelaPedidosGestorController implements Initializable {
+public class TelaGerenciarPedidosController implements Initializable {
     
     @FXML
     private ListView<String> pedidoListView;
@@ -31,7 +31,7 @@ public class TelaPedidosGestorController implements Initializable {
 
     @FXML
     private void voltar(ActionEvent event) throws IOException {
-        Parent telaOpcoesGestorParent = FXMLLoader.load(getClass().getResource("/br/com/fatec/view/TelaOpcoesGestor.fxml"));
+        Parent telaOpcoesGestorParent = FXMLLoader.load(getClass().getResource("/br/com/fatec/view/TelaPrincipal.fxml"));
         Scene telaOpcoesGestorScene = new Scene(telaOpcoesGestorParent);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(telaOpcoesGestorScene);
