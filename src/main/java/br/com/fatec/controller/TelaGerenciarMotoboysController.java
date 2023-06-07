@@ -2,6 +2,7 @@ package br.com.fatec.controller;
 
 import br.com.fatec.App;
 import br.com.fatec.Motoboy;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,6 +36,9 @@ public class TelaGerenciarMotoboysController implements Initializable {
     private TextField txtNome;
     
     @FXML
+    private TextField txtPesquisa;
+    
+    @FXML
     private ComboBox<Motoboy> cbMotoboy;
     
     @FXML
@@ -49,8 +53,11 @@ public class TelaGerenciarMotoboysController implements Initializable {
     @FXML
     private Button btnAlterar;
     
-     @FXML
-    private Button btn_voltar;
+    @FXML
+    private Button btnVoltar;
+    
+    @FXML
+    private Button btnPesquisar;
 
     /**
      * Initializes the controller class.
@@ -62,17 +69,17 @@ public class TelaGerenciarMotoboysController implements Initializable {
 
         //trata do evento change da comboBox
         cbMotoboy.valueProperty().addListener((value, velho, novo) -> {
-            // coloca os dados do objeto NOVO selecionado dentro dos texts
+            //coloca os dados do objeto NOVO selecionado dentro dos texts
             txtNome.setText(novo.getNomeEntregador());
             txtPlaca.setText(novo.getPlacaMoto());
-            // define o nome selecionado como a variável principal
+            //define o nome selecionado como a variável principal
             nomeAux = novo.getNomeEntregador();
         });
     }
 
     @FXML
     private void btnCadastrar_Click(ActionEvent event) {
-        // Verifica se existem campos em branco
+        //verifica se existem campos em branco
         if (txtNome.getText().isEmpty() || txtPlaca.getText().isEmpty()) {
             Alert alerta = new Alert(Alert.AlertType.WARNING,
                     "Existem campos em branco que devem ser preenchidos!",
@@ -81,10 +88,10 @@ public class TelaGerenciarMotoboysController implements Initializable {
             return;
         }
 
-        // Criando objeto para ser adicionado
+        //criando objeto para ser adicionado
         Motoboy novoMotoboy = new Motoboy(txtNome.getText(), txtPlaca.getText());
 
-        // Verifica se o objeto já existe no ArrayList, para não aceitar valores repetidos
+        //verifica se o objeto já existe no ArrayList, para não aceitar valores repetidos
         for (Motoboy motoboy : motoboys) {
             if (motoboy.equals(novoMotoboy)) {
                 // Caso exista, o usuário é notificado
@@ -98,25 +105,25 @@ public class TelaGerenciarMotoboysController implements Initializable {
             }
         }
 
-        // Adiciona o Motoboy criado no ArrayList
+        //adiciona o Motoboy criado no ArrayList
         motoboys.add(novoMotoboy);
-        // Notifica a inclusão
+        //notifica a inclusão
         Alert alerta = new Alert(Alert.AlertType.INFORMATION,
                 "Novo motoboy adicionado com sucesso!",
                 ButtonType.OK);
         alerta.showAndWait();
 
-        // Define o novo motoboy como o selecionado na ComboBox
+        //define o novo motoboy como o selecionado na ComboBox
         cbMotoboy.getSelectionModel().select(novoMotoboy);
-        // Limpa os campos
+        //limpa os campos
         limpaCampos();
     }
     
     @FXML
     private void btnExcluir_Click(ActionEvent event) {
-        // Verifica se existem campos em branco
+        //verifica se existem campos em branco
         if (txtNome.getText().isEmpty() || txtPlaca.getText().isEmpty()) {
-            // Envia uma mensagem notificando
+            //envia uma mensagem notificando
             Alert alerta = new Alert(Alert.AlertType.WARNING,
                     "Preencha os campos em branco!",
                     ButtonType.OK);
@@ -124,10 +131,10 @@ public class TelaGerenciarMotoboysController implements Initializable {
             return;
         }
 
-        // Cria um objeto auxiliar para realizar comparação
+        //cria um objeto auxiliar para realizar comparação
         Motoboy motoboyAux = new Motoboy(txtNome.getText(), txtPlaca.getText());
 
-        // Realiza comparação para possível exclusão
+        //realiza comparação para possível exclusão
         for (Motoboy motoboy : motoboys) {
             if (motoboy.equals(motoboyAux)) {
                 // Exclui o objeto
@@ -142,7 +149,7 @@ public class TelaGerenciarMotoboysController implements Initializable {
                 return;
             }
         }
-        // Notifica o usuário que não foi encontrado um motoboy
+        //notifica o usuário que não foi encontrado um motoboy
         Alert alerta = new Alert(Alert.AlertType.WARNING,
                 "Motoboy não encontrado, verifique as informações...",
                 ButtonType.OK);
@@ -151,7 +158,7 @@ public class TelaGerenciarMotoboysController implements Initializable {
     
     @FXML
     private void btnAlterar_Click(ActionEvent event) {
-        // Verifica se o usuário já salvou as informações
+        //verifica se o usuário já salvou as informações
         if (placaAux == null) {
             Alert alerta = new Alert(Alert.AlertType.WARNING,
                     "Clique no botão 'Salvar' antes de prosseguir.",
@@ -160,10 +167,10 @@ public class TelaGerenciarMotoboysController implements Initializable {
             return;
         }
 
-        // Objeto auxiliar para realizar comparação
+        //objeto auxiliar para realizar comparação
         Motoboy motoboyAux = new Motoboy(nomeAux, txtPlaca.getText());
 
-        // Realiza comparação para possível alteração
+        //realiza comparação para possível alteração
         for (int i = 0; i < motoboys.size(); i++) {
             if (motoboys.get(i).getNomeEntregador().equals(nomeAux)) {
                 // Alterando apenas a placa
@@ -181,7 +188,7 @@ public class TelaGerenciarMotoboysController implements Initializable {
             }
         }
 
-        // Caso não seja encontrado o elemento para alteração
+        //caso não seja encontrado o elemento para alteração
         Alert alerta = new Alert(Alert.AlertType.WARNING,
                 "Elemento não encontrado para alteração.",
                 ButtonType.OK);
@@ -221,14 +228,39 @@ public class TelaGerenciarMotoboysController implements Initializable {
         alerta.showAndWait();
     }
 
-
-
-    
     public void limpaCampos() {
         //limpa campos e seleciona o primeiro elemento da comboBox
         cbMotoboy.getSelectionModel().selectFirst();
         txtNome.setText("");
         txtPlaca.setText("");
+    }
+    
+    @FXML
+    private void btnPesquisar_Click(ActionEvent event) {
+        String termoPesquisa = txtPesquisa.getText().toLowerCase();
+        ObservableList<Motoboy> resultadosPesquisa = FXCollections.observableArrayList();
+
+        // Realize a pesquisa com base no termo de pesquisa
+        for (Motoboy motoboy : motoboys) {
+            String nome = motoboy.getNomeEntregador().toLowerCase();
+            String placa = motoboy.getPlacaMoto().toLowerCase();
+
+            if (nome.contains(termoPesquisa) || placa.contains(termoPesquisa)) {
+                resultadosPesquisa.add(motoboy);
+            }
+        }
+
+        // Atualize os elementos da interface com o resultado da pesquisa
+        cbMotoboy.setItems(resultadosPesquisa);
+
+        if (!resultadosPesquisa.isEmpty()) {
+            cbMotoboy.getSelectionModel().selectFirst();
+            txtNome.setText(resultadosPesquisa.get(0).getNomeEntregador());
+            txtPlaca.setText(resultadosPesquisa.get(0).getPlacaMoto());
+        } else {
+            txtNome.setText("");
+            txtPlaca.setText("");
+        }
     }
     
     @FXML
