@@ -19,30 +19,30 @@
             <Image url="@ads_pizza_logo.png" />
          </image>
       </ImageView>
-      <VBox fx:id="vbox" alignment="CENTER" layoutX="155.0" layoutY="105.0" prefHeight="274.0" prefWidth="291.0" spacing="20.0">
+      <VBox fx:id="vbox" alignment="CENTER" layoutX="155.0" layoutY="118.0" prefHeight="274.0" prefWidth="291.0" spacing="20.0">
          <children>
             <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
                <children>
                   <Label stylesheets="@telapizzas.css" text="Descrição do Pedido:    " textFill="WHITE" />
-                  <TextField fx:id="txtDesc" minHeight="20.0" prefHeight="20.0" prefWidth="152.0" />
+                  <TextField fx:id="txtDesc" minHeight="20.0" prefHeight="25.0" prefWidth="152.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
                <children>
                   <Label stylesheets="@telapizzas.css" text="Valor do pedido:           " textFill="WHITE" />
-                  <TextField fx:id="txtValor" minHeight="20.0" prefHeight="20.0" prefWidth="153.0" />
+                  <TextField fx:id="txtValor" minHeight="20.0" prefHeight="25.0" prefWidth="153.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
                <children>
                   <Label stylesheets="@telapizzas.css" text="Selecione o Cliente:       " textFill="WHITE" />
-                  <ComboBox fx:id="cbCliente" minHeight="20.0" prefHeight="20.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cbCliente" minHeight="20.0" prefHeight="25.0" prefWidth="150.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
                <children>
                   <Label stylesheets="@telapizzas.css" text="Selecione o Entregador:" textFill="WHITE" />
-                  <ComboBox fx:id="cbEntregador" prefHeight="20.0" prefWidth="150.0" />
+                  <ComboBox fx:id="cbEntregador" prefHeight="25.0" prefWidth="150.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="38.0" prefWidth="586.0" spacing="10.0">

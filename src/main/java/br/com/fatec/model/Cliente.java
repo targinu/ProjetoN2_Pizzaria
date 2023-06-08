@@ -92,5 +92,11 @@ public class Cliente {
     public Cliente (String telefone){
         this.telefone = telefone;
     }
+    
+    //retorna os dados para a cbCliente como string
+    @Override
+    public String toString() {
+        return nomeCliente;
+    }
 
 }
