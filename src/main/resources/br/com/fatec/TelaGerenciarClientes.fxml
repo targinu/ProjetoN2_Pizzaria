@@ -63,7 +63,7 @@
             <URL value="@telapizzas.css" />
          </stylesheets>         
       </VBox>
-      <Button fx:id="btnVoltar" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="17.0" minHeight="25.0" prefHeight="25.0" stylesheets="@telapizzas.css" text="Voltar" />      
+      <Button fx:id="btnVoltar" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="17.0" minHeight="25.0" onAction="#btnVoltar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Voltar" />      
    </children>
    <stylesheets>
       <URL value="@../../../../../../../../VA4_ProjetoN2Pizzaria/src/main/resources/br/com/fatec/telaprincipal.css" />

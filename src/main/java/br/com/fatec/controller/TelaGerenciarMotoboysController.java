@@ -2,7 +2,6 @@ package br.com.fatec.controller;
 
 import br.com.fatec.App;
 import br.com.fatec.model.Motoboy;
-import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -227,13 +226,6 @@ public class TelaGerenciarMotoboysController implements Initializable {
                     ButtonType.OK);
         alerta.showAndWait();
     }
-
-    public void limpaCampos() {
-        //limpa campos e seleciona o primeiro elemento da comboBox
-        cbMotoboy.getSelectionModel().selectFirst();
-        txtNome.setText("");
-        txtPlaca.setText("");
-    }
     
     @FXML
     private void btnPesquisar_Click(ActionEvent event) {
@@ -263,6 +255,7 @@ public class TelaGerenciarMotoboysController implements Initializable {
         }
     }
     
+    //volta para a tela principal
     @FXML
     private void btnVoltar_Click(ActionEvent event) {
         String fxml = "TelaPrincipal";
@@ -272,7 +265,13 @@ public class TelaGerenciarMotoboysController implements Initializable {
         } catch (IOException ex) {
             System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
         }
-
+    }    
+        
+    //metodo para limpar a tela
+    public void limpaCampos() {
+        //limpa campos e seleciona o primeiro elemento da comboBox
+        cbMotoboy.getSelectionModel().selectFirst();
+        txtNome.setText("");
+        txtPlaca.setText("");
     }
-    
 }

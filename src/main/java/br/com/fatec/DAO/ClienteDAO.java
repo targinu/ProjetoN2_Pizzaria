@@ -20,7 +20,6 @@ public class ClienteDAO implements DAO<Cliente> {
         Banco.conectar();
         pst = Banco.obterConexao().prepareStatement(sql);
         
-        //pst.setInt(1, obj.getIdCliente());
         pst.setString(1, obj.getNomeCliente());
         pst.setString(2, obj.getTelefone());
         pst.setString(3, obj.getEndereco());
@@ -33,14 +32,17 @@ public class ClienteDAO implements DAO<Cliente> {
         return res != 0;
     }
 
+    //alterado para a busca de clientes por telefone
+    //para o nosso caso de uso não faz muito sentido
+    //gerar ids manualmente para os clientes
     @Override
     public boolean remove(Cliente obj) throws SQLException {
-        String sql =  "DELETE FROM CLIENTE WHERE idCliente=?";
+        String sql =  "DELETE FROM CLIENTE WHERE telefone=?";
         
         Banco.conectar();
         pst = Banco.obterConexao().prepareStatement(sql);
         
-        pst.setInt(1, obj.getIdCliente());
+        pst.setString(1, obj.getTelefone());
         
         int res = pst.executeUpdate();
         
@@ -52,7 +54,7 @@ public class ClienteDAO implements DAO<Cliente> {
     @Override
     public boolean altera(Cliente obj) throws SQLException {
         String sql = "UPDATE CLIENTE SET nomeCliente = ?, telefone = ?, endereco = ?, cidade = ? " +
-                "WHERE idCliente = ?";
+                "WHERE telefone = ?";
         
         Banco.conectar();
         pst = Banco.obterConexao().prepareStatement(sql);
@@ -61,7 +63,7 @@ public class ClienteDAO implements DAO<Cliente> {
         pst.setString(2, obj.getTelefone());
         pst.setString(3, obj.getEndereco());
         pst.setString(4, obj.getCidade());
-        pst.setInt(5, obj.getIdCliente());
+        pst.setString(5, obj.getTelefone());
         
         int res = pst.executeUpdate();
         
@@ -70,14 +72,17 @@ public class ClienteDAO implements DAO<Cliente> {
         return res != 0;
     }
 
+    //alterado para a busca de clientes por telefone
+    //para o nosso caso de uso não faz muito sentido
+    //gerar ids manualmente para os clientes
     @Override
     public Cliente buscaID(Cliente obj) throws SQLException {
-        String sql = "SELECT * FROM CLIENTE WHERE idCliente = ?";
+        String sql = "SELECT * FROM CLIENTE WHERE telefone = ?";
         
         Banco.conectar();
         pst = Banco.obterConexao().prepareStatement(sql);
         
-        pst.setInt(1, obj.getIdCliente());
+        pst.setString(1, obj.getTelefone());
         
         rs = pst.executeQuery();
         

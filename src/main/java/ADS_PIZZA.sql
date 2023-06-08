@@ -9,7 +9,7 @@ CREATE TABLE MOTOBOY (
 CREATE TABLE CLIENTE (
     idCliente int PRIMARY KEY AUTO_INCREMENT,
     nomeCliente varchar(30) not null,
-    telefone varchar(15) not null,
+    telefone varchar(15) not null unique, 
     endereco varchar(100) not null,
     cidade varchar(30) not null
 );
@@ -30,9 +30,9 @@ VALUES ('ABC1234', 'João'),
        ('GHI9012', 'Pedro');
 
 INSERT INTO CLIENTE (nomeCliente, telefone, endereco, cidade)
-VALUES ('João da Silva', '(XX) XXXX-XXXX', 'Rua A, 123', 'São Paulo'),
-       ('Maria Oliveira', '(XX) XXXX-XXXX', 'Avenida B, 456', 'Rio de Janeiro'),
-       ('Pedro Santos', '(XX) XXXX-XXXX', 'Travessa C, 789', 'Belo Horizonte');
+VALUES ('João da Silva', '11 92131-1211', 'Rua A, 123', 'São Paulo'),
+       ('Maria Oliveira', '11 91111-2321', 'Avenida B, 456', 'São Caetano'),
+       ('Pedro Santos', '11 9245-2124', 'Travessa C, 789', 'Santo André');
 
 INSERT INTO PEDIDOS (descricao, valor, clienteId, motoboyId)
 VALUES ('Pizza de Calabresa', 30.00, 1, 'ABC1234'),
