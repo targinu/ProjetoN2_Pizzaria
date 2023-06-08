@@ -4,10 +4,6 @@ import br.com.fatec.App;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -27,15 +23,7 @@ public class TelaPrincipalController {
 
     @FXML
     private Button btnSair;
-
-    @FXML
-    private void handleBtnGerenciarPedidos(ActionEvent event) {
-    }
-
-    @FXML
-    private void handleBtnGerenciarPizzas(ActionEvent event) {
-    }
-
+    
     @FXML
     private void btnGerenciarMotoboys_Click(ActionEvent event) {
         String fxml = "TelaGerenciarMotoboys";
@@ -45,6 +33,21 @@ public class TelaPrincipalController {
         } catch (IOException ex) {
             System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
         } 
+    }
+
+    @FXML
+    private void handleBtnGerenciarClientes(ActionEvent event) {
+        String fxml = "TelaGerenciarClientes";
+        try {
+            
+            App.setRoot(fxml);  
+        } catch (IOException ex) {
+            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
+        } 
+    }
+
+    @FXML
+    private void handleBtnGerenciarPedidos(ActionEvent event) {
     }
 
     @FXML

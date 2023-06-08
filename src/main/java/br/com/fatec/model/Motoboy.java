@@ -1,4 +1,4 @@
-package br.com.fatec;
+package br.com.fatec.model;
 import java.util.Objects;
 
 public class Motoboy {

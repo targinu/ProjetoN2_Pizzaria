@@ -1,7 +1,7 @@
 package br.com.fatec.controller;
 
 import br.com.fatec.App;
-import br.com.fatec.Motoboy;
+import br.com.fatec.model.Motoboy;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URL;

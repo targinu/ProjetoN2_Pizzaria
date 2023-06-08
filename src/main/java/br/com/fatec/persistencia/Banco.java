@@ -15,7 +15,7 @@ public class Banco {
     //define valores padrão
     static {
         //mysql e mariaDB
-        bancoDados = "bid_jogadores";
+        bancoDados = "ads_pizza";
         usuario = "root";
         senha = "";
         servidor = "localhost";
@@ -34,12 +34,12 @@ public class Banco {
     //métodos
     public static void conectar() throws SQLException {
         //mysql
-        //String url = "jdbc:mysql://" + servidor +
-        //             ":" + porta + "/" + bancoDados;
+        String url = "jdbc:mysql://" + servidor +
+                     ":" + porta + "/" + bancoDados;
 
         //MariaDB
-        String url = "jdbc:mariadb://" + servidor +
-                     ":" + porta + "/" + bancoDados;
+        //String url = "jdbc:mariadb://" + servidor +
+        //             ":" + porta + "/" + bancoDados;
         
         //sqlServer
         //String url = "jdbc:sqlserver://" + servidor
