@@ -84,13 +84,23 @@ public class Pedido {
         this.idPedido = idPedido;
     }
     
-    //construtor de tudo
     public Pedido( String descricao, double valor, int clienteId, String motoboyId) {
         this.descricao = descricao;
         this.valor = valor;
         this.clienteId = clienteId;
         this.motoboyId = motoboyId;
     }
+
+    //construtor de tudo
+    public Pedido(int idPedido, String descricao, double valor, int clienteId, String motoboyId) {
+        this.idPedido = idPedido;
+        this.descricao = descricao;
+        this.valor = valor;
+        this.clienteId = clienteId;
+        this.motoboyId = motoboyId;
+    }
+    
+    
     
     
     
