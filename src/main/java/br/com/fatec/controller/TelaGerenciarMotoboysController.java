@@ -21,9 +21,9 @@ public class TelaGerenciarMotoboysController implements Initializable {
      //variaveis auxiliares usadas para alterar objeto
     static String nomeAux, placaAux;
     //cria uma coleção para armazenar todos os motoboys que aparecerão na combo e cria alguns objetos com valores defaults
-    Motoboy m1 = new Motoboy("João", "ABC1A23");
-    Motoboy m2 = new Motoboy("Pedro", "DEF5B67");
-    Motoboy m3 = new Motoboy("Mario", "GHI9C01");
+    Motoboy m1 = new Motoboy("Bruno", "ABC1A23");
+    Motoboy m2 = new Motoboy("Carlos", "DEF5B67");
+    Motoboy m3 = new Motoboy("Zeca", "GHI9C01");
     
     //Observable list Motoboys
     private ObservableList<Motoboy> motoboys = FXCollections.observableArrayList(m1, m2, m3);

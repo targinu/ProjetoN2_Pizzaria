@@ -88,15 +88,16 @@ public class Cliente {
         this.cidade = cidade;
     }
     
-    //construtor
+    //construtor telefone
     public Cliente (String telefone){
         this.telefone = telefone;
     }
-    
+       
     //retorna os dados para a cbCliente como string
     @Override
     public String toString() {
-        return nomeCliente;
+        //pega o valor de id e transforma em string
+        return String.valueOf(idCliente) + " - " + nomeCliente;
     }
 
 }

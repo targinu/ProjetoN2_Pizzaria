@@ -25,9 +25,9 @@ CREATE TABLE PEDIDOS (
 );
 
 INSERT INTO MOTOBOY (placaMoto, nomeEntregador)
-VALUES ('ABC1234', 'João'),
-       ('DEF5678', 'Maria'),
-       ('GHI9012', 'Pedro');
+VALUES ('ABC1A23', 'Bruno'),
+       ('DEF5B67', 'Carlos'),
+       ('GHI9C01', 'Zeca');
 
 INSERT INTO CLIENTE (nomeCliente, telefone, endereco, cidade)
 VALUES ('João da Silva', '11 92131-1211', 'Rua A, 123', 'São Paulo'),
@@ -35,6 +35,6 @@ VALUES ('João da Silva', '11 92131-1211', 'Rua A, 123', 'São Paulo'),
        ('Pedro Santos', '11 9245-2124', 'Travessa C, 789', 'Santo André');
 
 INSERT INTO PEDIDOS (descricao, valor, clienteId, motoboyId)
-VALUES ('Pizza de Calabresa', 30.00, 1, 'ABC1234'),
-       ('Pizza de Mussarela', 25.00, 2, 'DEF5678'),
-       ('Pizza de Frango com Catupiry', 35.00, 3, 'GHI9012');
+VALUES ('Pizza de Calabresa', 30.00, 1, 'ABC1A23'),
+       ('Pizza de Mussarela', 25.00, 2, 'DEF5B67'),
+       ('Pizza de Frango com Catupiry', 35.00, 3, 'GHI9C01');
