@@ -1,23 +1,47 @@
 package br.com.fatec.controller;
 
+import br.com.fatec.App;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 
 public class TelaGerenciarPedidosController implements Initializable {
-    
+
     @FXML
-    private ListView<String> pedidoListView;
+    private TextField txtDesc;
+
+    @FXML
+    private TextField txtValor;
+
+    @FXML
+    private ComboBox<String> cbCliente;
+
+    @FXML
+    private ComboBox<String> cbEntregador;
+
+    @FXML
+    private Button btnCadastrar;
+
+    @FXML
+    private Button btnAlterar;
+
+    @FXML
+    private Button btnExcluir;
+
+    @FXML
+    private TextField txtId;
+
+    @FXML
+    private Button btnPesquisar;
+
+    @FXML
+    private Button btnVoltar;
 
     /**
      * Initializes the controller class.
@@ -26,15 +50,32 @@ public class TelaGerenciarPedidosController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        pedidoListView.getItems().addAll("Pedido 1", "Pedido 2", "Pedido 3", "Pedido 4");
+    }
+    
+    @FXML
+    public void btnCadastrar_Click() {
     }
 
     @FXML
-    private void voltar(ActionEvent event) throws IOException {
-        Parent telaOpcoesGestorParent = FXMLLoader.load(getClass().getResource("/br/com/fatec/view/TelaPrincipal.fxml"));
-        Scene telaOpcoesGestorScene = new Scene(telaOpcoesGestorParent);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(telaOpcoesGestorScene);
-        stage.show();
+    public void btnAlterar_Click() {
+    }
+
+    @FXML
+    public void btnExcluir_Click() {
+    }
+
+    @FXML
+    public void btnPesquisar_Click() {
+    }
+
+    @FXML
+    public void btnVoltar_Click() {
+        String fxml = "TelaPrincipal";
+        try {
+
+            App.setRoot(fxml);
+        } catch (IOException ex) {
+            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
+        }
     }
 }

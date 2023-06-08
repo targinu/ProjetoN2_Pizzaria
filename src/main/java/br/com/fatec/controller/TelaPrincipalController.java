@@ -27,8 +27,7 @@ public class TelaPrincipalController {
     @FXML
     private void btnGerenciarMotoboys_Click(ActionEvent event) {
         String fxml = "TelaGerenciarMotoboys";
-        try {
-            
+        try {            
             App.setRoot(fxml);  
         } catch (IOException ex) {
             System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
@@ -38,8 +37,7 @@ public class TelaPrincipalController {
     @FXML
     private void handleBtnGerenciarClientes(ActionEvent event) {
         String fxml = "TelaGerenciarClientes";
-        try {
-            
+        try {            
             App.setRoot(fxml);  
         } catch (IOException ex) {
             System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
@@ -48,6 +46,12 @@ public class TelaPrincipalController {
 
     @FXML
     private void handleBtnGerenciarPedidos(ActionEvent event) {
+        String fxml = "TelaGerenciarPedidos";
+        try {            
+            App.setRoot(fxml);  
+        } catch (IOException ex) {
+            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
+        } 
     }
 
     @FXML
