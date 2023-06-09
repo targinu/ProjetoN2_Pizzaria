@@ -11,14 +11,19 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class TelaConsultarPedidosController implements Initializable {
 
@@ -39,6 +44,12 @@ public class TelaConsultarPedidosController implements Initializable {
 
     @FXML
     private TableColumn<Pedido, Integer> colClienteId;
+    
+    @FXML
+    private TableColumn<Pedido, String> colClienteNome;
+    
+    @FXML
+    private TableColumn<Pedido, String> colEntregador;
 
     @FXML
     private TableColumn<Pedido, String> colPlaca;
@@ -62,6 +73,8 @@ public class TelaConsultarPedidosController implements Initializable {
         colDesc.setCellValueFactory(new PropertyValueFactory<>("descricao"));
         colValor.setCellValueFactory(new PropertyValueFactory<>("valor"));
         colClienteId.setCellValueFactory(new PropertyValueFactory<>("clienteId"));
+        colClienteNome.setCellValueFactory(new PropertyValueFactory<>("clienteNome"));
+        colEntregador.setCellValueFactory(new PropertyValueFactory<>("entregadorNome"));
         colPlaca.setCellValueFactory(new PropertyValueFactory<>("motoboyId"));
 
         //preencher a tabela com os pedidos existentes
@@ -74,10 +87,9 @@ public class TelaConsultarPedidosController implements Initializable {
     }
 
     @FXML
-    private void btnAlterar_Click() {
-       
-    }
+    private void btnAlterar_Click() throws IOException {
 
+    }
 
     @FXML
     private void btnExcluir_Click() {

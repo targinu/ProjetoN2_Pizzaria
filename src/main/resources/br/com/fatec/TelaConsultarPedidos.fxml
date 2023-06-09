@@ -26,11 +26,13 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
          <columns>
-            <TableColumn fx:id="colPedidoId" prefWidth="75.0" text="ID" />
-            <TableColumn fx:id="colDesc" prefWidth="75.0" text="Descrição" />
-            <TableColumn fx:id="colValor" prefWidth="75.0" text="Valor" />
-            <TableColumn fx:id="colClienteId" prefWidth="75.0" text="ClienteID" />
-            <TableColumn fx:id="colPlaca" prefWidth="75.0" text="Placa Motoboy" />
+            <TableColumn fx:id="colPedidoId" prefWidth="20.0" text="ID" />
+            <TableColumn fx:id="colDesc" prefWidth="162.0" text="Descrição" />
+            <TableColumn fx:id="colValor" prefWidth="25.0" text="Valor" />
+            <TableColumn fx:id="colClienteId" prefWidth="15.0" text="ClienteID" />
+            <TableColumn fx:id="colClienteNome" prefWidth="15.0" text="Nome Cliente" />
+            <TableColumn fx:id="colEntregador" prefWidth="60.0" text="Entregador" />
+            <TableColumn fx:id="colPlaca" prefWidth="60.0" text="Placa Motoboy" />
          </columns>
       </TableView>
       <HBox layoutX="25.0" layoutY="136.0" prefHeight="31.0" prefWidth="576.0" spacing="10.0">

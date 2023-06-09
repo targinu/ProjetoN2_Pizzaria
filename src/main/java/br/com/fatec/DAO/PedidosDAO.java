@@ -99,18 +99,21 @@ public class PedidosDAO implements DAO<Pedido> {
     @Override
     public Collection<Pedido> lista(String criterio) throws SQLException {
         ArrayList<Pedido> lista = new ArrayList<>();
-        
-        String sql = "SELECT * FROM PEDIDOS ";
-        
+
+        String sql = "SELECT p.*, c.nomeCliente AS clienteNome, m.nomeEntregador AS entregadorNome " +
+                         "FROM PEDIDOS p " +
+                         "JOIN CLIENTE c ON p.clienteId = c.idCliente " +
+                         "JOIN MOTOBOY m ON p.motoboyId = m.placaMoto ";
+
         if (criterio != null && criterio.length() > 0) {
             sql += " WHERE " + criterio;
         }
-        
+
         Banco.conectar();
         pst = Banco.obterConexao().prepareStatement(sql);
-        
+
         rs = pst.executeQuery();
-        
+
         while (rs.next()) {
             pedido = new Pedido();
             pedido.setIdPedido(rs.getInt("idPedido"));
@@ -118,13 +121,16 @@ public class PedidosDAO implements DAO<Pedido> {
             pedido.setValor(rs.getDouble("valor"));
             pedido.setClienteId(rs.getInt("clienteId"));
             pedido.setMotoboyId(rs.getString("motoboyId"));
-            
+            pedido.setClienteNome(rs.getString("clienteNome"));
+            pedido.setEntregadorNome(rs.getString("entregadorNome"));
+
             lista.add(pedido);
         }
-                
+
         Banco.desconectar();
-        
+
         return lista;
     }
+
     
 }

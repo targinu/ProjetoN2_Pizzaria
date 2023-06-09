@@ -8,6 +8,10 @@ public class Pedido {
     private double valor;
     private int clienteId;
     private String motoboyId;
+    
+    //usado na busca avançada
+    private String clienteNome;
+    private String entregadorNome;
 
     public int getIdPedido() {
         return idPedido;
@@ -47,6 +51,22 @@ public class Pedido {
 
     public void setMotoboyId(String motoboyId) {
         this.motoboyId = motoboyId;
+    }
+    
+    public String getClienteNome() {
+        return clienteNome;
+    }
+
+    public void setClienteNome(String clienteNome) {
+        this.clienteNome = clienteNome;
+    }
+
+    public String getEntregadorNome() {
+        return entregadorNome;
+    }
+
+    public void setEntregadorNome(String entregadorNome) {
+        this.entregadorNome = entregadorNome;
     }
     
     @Override
