@@ -56,6 +56,12 @@ public class TelaPrincipalController {
 
     @FXML
     private void handleBtnConsultarPedidos(ActionEvent event) {
+        String fxml = "TelaConsultarPedidos";
+        try {            
+            App.setRoot(fxml);  
+        } catch (IOException ex) {
+            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
+        }
     }
 
     @FXML
