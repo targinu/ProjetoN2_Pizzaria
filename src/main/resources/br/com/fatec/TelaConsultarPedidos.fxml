@@ -21,7 +21,7 @@
          </image>
       </ImageView>
       <Button fx:id="btnVoltar" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="17.0" minHeight="25.0" onAction="#btnVoltar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Voltar" />
-      <TableView fx:id="tblPedidos" layoutX="25.0" layoutY="172.0" prefHeight="214.0" prefWidth="550.0" style="-fx-background-color: #d73232;">
+      <TableView fx:id="tblPedidos" layoutX="25.0" layoutY="172.0" onMouseClicked="#setButtonTrue" prefHeight="214.0" prefWidth="550.0">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
@@ -33,16 +33,15 @@
             <TableColumn fx:id="colPlaca" prefWidth="75.0" text="Placa Motoboy" />
          </columns>
       </TableView>
-      <HBox layoutX="25.0" layoutY="136.0" prefHeight="100.0" prefWidth="576.0" spacing="10.0">
+      <HBox layoutX="25.0" layoutY="136.0" prefHeight="31.0" prefWidth="576.0" spacing="10.0">
          <children>
-            <TextField fx:id="txtBusca" prefHeight="25.0" prefWidth="415.0" promptText="Digite algo para ser filtrado..." />
-            <Button fx:id="btnFiltrar" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" onAction="#btnVoltar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Filtrar" />
-            <Button fx:id="btnRestaurar" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" onAction="#btnRestaurar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Restaurar" />
+            <Button fx:id="btnAlterar" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" onAction="#btnAlterar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Alterar" />
+            <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#btnExcluir_Click" text="Excluir" />
+            <Button fx:id="btnRestaurar" alignment="CENTER" contentDisplay="RIGHT" minHeight="25.0" onAction="#btnRestaurar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Restaurar Tabela" />
          </children>
       </HBox>      
    </children>
    <stylesheets>
-      <URL value="@../../../../../../../../VA4_ProjetoN2Pizzaria/src/main/resources/br/com/fatec/telaprincipal.css" />
       <URL value="@telapizzas.css" />
    </stylesheets>
 </AnchorPane>

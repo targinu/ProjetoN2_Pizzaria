@@ -1,5 +1,6 @@
 package br.com.fatec;
 
+import br.com.fatec.model.Pedido;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

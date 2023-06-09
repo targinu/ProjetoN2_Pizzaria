@@ -6,6 +6,7 @@ import br.com.fatec.model.Pedido;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,8 +17,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 public class TelaConsultarPedidosController implements Initializable {
 
@@ -43,17 +44,19 @@ public class TelaConsultarPedidosController implements Initializable {
     private TableColumn<Pedido, String> colPlaca;
 
     @FXML
-    private TextField txtBusca;
-
+    private Button btnExcluir;
+    
     @FXML
-    private Button btnFiltrar;
-
+    private Button btnAlterar;
+    
     @FXML
     private Button btnRestaurar;
-
+    
+    //armazena o pedido selecionado
+    private Pedido pedidoSelecionado;
+    
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        
         //configurar as colunas da tabela        
         colPedidoId.setCellValueFactory(new PropertyValueFactory<>("idPedido"));
         colDesc.setCellValueFactory(new PropertyValueFactory<>("descricao"));
@@ -63,48 +66,71 @@ public class TelaConsultarPedidosController implements Initializable {
 
         //preencher a tabela com os pedidos existentes
         tblPedidos.setItems(preencheTabela());
+        
+        //adiciona o listener para capturar o pedido selecionado na tabela
+        tblPedidos.getSelectionModel().selectedItemProperty().addListener((obs, antigoPedido, novoPedido) -> {
+            pedidoSelecionado = novoPedido;
+        });
     }
 
     @FXML
-    private void btnFiltrar_Click() {
-        //verificar se o campo de busca está vazio
-        if (txtBusca.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Digite algo para ser filtrado.", ButtonType.OK);
-            alert.showAndWait();
-            return;
-        }
+    private void btnAlterar_Click() {
+       
+    }
 
-        //cria um objeto dao para utilizar as funções do sql 
-        PedidosDAO dao = new PedidosDAO();
-        //cria uma list de Jogador
-        ObservableList<Pedido> pedidos = FXCollections.observableArrayList();
-        
-        try {
-            //adiciona todos os 'pedidos' com suas informações de acordo com a condição
-            pedidos.addAll(dao.lista(" = '"+txtBusca.getText()+"'"));
-        } catch (SQLException ex) {
-            System.out.println("Erro: "+ ex.getErrorCode());
-            Alert alerta = new Alert(Alert.AlertType.ERROR,
-                    "Erro Preenche Tabela: " + ex.getMessage(),
-                    ButtonType.OK);
-            alerta.showAndWait();
+
+    @FXML
+    private void btnExcluir_Click() {
+        if (pedidoSelecionado != null) {
+            Alert confirmacao = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmacao.setTitle("Confirmação de exclusão");
+            confirmacao.setHeaderText("Tem certeza que deseja excluir o pedido?");
+            confirmacao.setContentText("Essa ação não pode ser desfeita.");
+
+            Optional<ButtonType> resultado = confirmacao.showAndWait();
+            if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
+                PedidosDAO dao = new PedidosDAO();
+                try {
+                    boolean excluiu = dao.remove(pedidoSelecionado);
+                    if (excluiu) {
+                        Alert sucesso = new Alert(Alert.AlertType.INFORMATION);
+                        sucesso.setTitle("Sucesso");
+                        sucesso.setHeaderText("Pedido excluído com sucesso.");
+                        sucesso.showAndWait();
+                        tblPedidos.setItems(preencheTabela()); // Atualiza a tabela após a exclusão
+                    } else {
+                        Alert erro = new Alert(Alert.AlertType.ERROR);
+                        erro.setTitle("Erro");
+                        erro.setHeaderText("Erro ao excluir o pedido.");
+                        erro.setContentText("Não foi possível excluir o pedido.");
+                        erro.showAndWait();
+                    }
+                } catch (SQLException ex) {
+                    Alert erro = new Alert(Alert.AlertType.ERROR);
+                    erro.setTitle("Erro");
+                    erro.setHeaderText("Erro ao excluir o pedido.");
+                    erro.setContentText("Ocorreu um erro durante a exclusão do pedido: " + ex.getMessage());
+                    erro.showAndWait();
+                }
+            }
+        } else {
+            Alert aviso = new Alert(Alert.AlertType.WARNING);
+            aviso.setTitle("Aviso");
+            aviso.setHeaderText("Nenhum pedido selecionado.");
+            aviso.setContentText("Por favor, selecione um pedido na tabela.");
+            aviso.showAndWait();
         }
-        //cria a nova tableView com os valores filtrados
-        tblPedidos.setItems(pedidos);
-        
-        txtBusca.setText("");
     }
 
     @FXML
     private void btnRestaurar_Click() {
-        // Restaurar a tabela exibindo todos os pedidos
+        //restaurar a tabela exibindo todos os pedidos
         tblPedidos.setItems(preencheTabela());
-        txtBusca.clear();
     }
 
     @FXML
     private void btnVoltar_Click() {
-        // Voltar para a tela principal
+        //voltar para a tela principal
         String fxml = "TelaPrincipal";
         try {
             App.setRoot(fxml);
@@ -124,27 +150,18 @@ public class TelaConsultarPedidosController implements Initializable {
             pedidos.addAll(dao.lista(""));
         } catch (SQLException ex) {
             Alert alerta = new Alert(Alert.AlertType.ERROR,
-                    "Erro Preenche Tabela: " + ex.getMessage(),
+                    "Erro ao Preencher Tabela: " + ex.getMessage(),
                     ButtonType.OK);
             alerta.showAndWait();
         }
         //retorna a collection com os pedidos
         return pedidos;
     }
-
-    /*
-    private ObservableList<Pedido> getPedidosFiltrados(String busca) {
-        // Obter a lista de pedidos filtrados com base na busca realizada
-        PedidosDAO pedidoDAO = new PedidosDAO();
-        try {
-            return FXCollections.observableArrayList(pedidoDAO.getPedidosFiltrados(busca));
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR,
-                    "Erro ao obter a lista de pedidos filtrados: " + e.getMessage(), ButtonType.OK);
-            alert.showAndWait();
-            return FXCollections.emptyObservableList();
-        }
-    }    
-    */
-
+    
+    @FXML
+    private void setButtonTrue(MouseEvent event) {
+        btnAlterar.setDisable(false);
+        btnExcluir.setDisable(false);
+    }
+    
 }

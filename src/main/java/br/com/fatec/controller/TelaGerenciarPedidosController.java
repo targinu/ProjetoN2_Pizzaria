@@ -77,7 +77,7 @@ public class TelaGerenciarPedidosController implements Initializable {
     
      private ObservableList<Cliente> clientes = 
            FXCollections.observableArrayList();
-         
+             
     /**
      * Initializes the controller class.
      * @param url
