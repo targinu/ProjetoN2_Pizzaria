@@ -53,44 +53,45 @@ public class TelaGerenciarPedidosController implements Initializable {
 
     @FXML
     private Button btnVoltar;
-    
-    Motoboy m1 = new Motoboy("Bruno","ABC1A23");
-    Motoboy m2 = new Motoboy("Carlos","DEF5B67");
-    Motoboy m3 = new Motoboy("Zeca","GHI9C01");
-    
-    private ObservableList<Motoboy> motoboys = 
-           FXCollections.observableArrayList(m1,m2,m3);
-    
+
+    Motoboy m1 = new Motoboy("Bruno", "ABC1A23");
+    Motoboy m2 = new Motoboy("Carlos", "DEF5B67");
+    Motoboy m3 = new Motoboy("Zeca", "GHI9C01");
+
+    private ObservableList<Motoboy> motoboys
+            = FXCollections.observableArrayList(m1, m2, m3);
+
     //list criado para receber os dados que vem da tela GerenciarMotoboys
-    public ObservableList<Motoboy> dado = 
-           FXCollections.observableArrayList();
+    public ObservableList<Motoboy> dado
+            = FXCollections.observableArrayList();
 
     //para pegar os dados;
     public ObservableList<Motoboy> getDado() {
         return dado;
     }
-    
+
     //para setar os dados
     public void setDado(ObservableList<Motoboy> dado) {
         this.dado = dado;
     }
-    
-     private ObservableList<Cliente> clientes = 
-           FXCollections.observableArrayList();
-             
+
+    private ObservableList<Cliente> clientes
+            = FXCollections.observableArrayList();
+
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         cbEntregador.setItems(motoboys);
         cbCliente.setItems(preencheTabela());
-        
+
     }
-    
+
     @FXML
     public void btnCadastrar_Click() {
         //verifica se todos os campos estão preenchidos
@@ -142,53 +143,54 @@ public class TelaGerenciarPedidosController implements Initializable {
             alerta.showAndWait();
             return;
         }
-        
-      //verifica os outros campos em branco
-        if(!verificaCampos())
+
+        //verifica os outros campos em branco
+        if (!verificaCampos()) {
             return;
-        
+        }
+
         //objeto com as querys
         PedidosDAO dao = new PedidosDAO();
-        
+
         //objeto para incluir no banco, dados que podem vir da tela
         Pedido pedido = new Pedido(Integer.parseInt(txtId.getText()),
                 txtDesc.getText(), Double.parseDouble(txtValor.getText()),
-                obterClienteId(),cbEntregador.getValue().getPlacaMoto());
-                
+                obterClienteId(), cbEntregador.getValue().getPlacaMoto());
+
         try {
             //verifica se existe uma siglaClube = ao txtSigla
-            if(dao.buscaID(pedido) == null){
+            if (dao.buscaID(pedido) == null) {
                 //se nao existir
                 Alert alerta = new Alert(Alert.AlertType.WARNING,
-                    "Alteração não realizada. Não existe nenhum pedido no banco"
-                            + " com o id: "+ pedido.getIdPedido(), 
-                    ButtonType.OK);
-                    alerta.showAndWait();
-                 //retorna   
+                        "Alteração não realizada. Não existe nenhum pedido no banco"
+                        + " com o id: " + pedido.getIdPedido(),
+                        ButtonType.OK);
+                alerta.showAndWait();
+                //retorna   
                 return;
             }
             //realiza a alteração caso tudo esteja correto
-            if(dao.altera(pedido)){
+            if (dao.altera(pedido)) {
                 Alert alerta = new Alert(Alert.AlertType.INFORMATION,
-                    "Alterações em "+pedido.getIdPedido() +" realizadas com sucesso", 
-                    ButtonType.OK);
-                    alerta.showAndWait();
-                    //limpa campos
-                    limpaCampos();
+                        "Alterações em " + pedido.getIdPedido() + " realizadas com sucesso",
+                        ButtonType.OK);
+                alerta.showAndWait();
+                //limpa campos
+                limpaCampos();
             }
-                
+
         } catch (SQLException ex) {
             //dando o erro expecificado
             System.out.println("Erro de alteração: " + ex.getMessage());
             //tratando o erro para o usuario entender
             switch (ex.getErrorCode()) {
                 default:
-                        Alert alerta1 = new Alert(Alert.AlertType.WARNING,
-                    "Erro ("+ex.getErrorCode()+") ao alterar.", 
-                    ButtonType.OK);
+                    Alert alerta1 = new Alert(Alert.AlertType.WARNING,
+                            "Erro (" + ex.getErrorCode() + ") ao alterar.",
+                            ButtonType.OK);
                     alerta1.showAndWait();
-                    break;    
-            }            
+                    break;
+            }
         }
     }
 
@@ -316,13 +318,13 @@ public class TelaGerenciarPedidosController implements Initializable {
             System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
         }
     }
-    
+
     //método para trazer informaçôes do banco para a comboBox cbCliente
     private ObservableList<Cliente> preencheTabela() {
         ClienteDAO dao = new ClienteDAO();
         ObservableList<Cliente> clientes
-            = FXCollections.observableArrayList();
-        
+                = FXCollections.observableArrayList();
+
         try {
             clientes.addAll(dao.lista(""));
         } catch (SQLException ex) {
@@ -331,40 +333,40 @@ public class TelaGerenciarPedidosController implements Initializable {
                     ButtonType.OK);
             alerta.showAndWait();
         }
-        
+
         return clientes;
     }
-    
-    public boolean verificaCampos(){
+
+    public boolean verificaCampos() {
         boolean condicao = true;
         //Verifica se existem campos em branco
-        if(txtDesc.getText().isEmpty() || txtValor.getText().isEmpty() || 
-                cbCliente.getSelectionModel().isEmpty() || cbEntregador.getSelectionModel().isEmpty()){
+        if (txtDesc.getText().isEmpty() || txtValor.getText().isEmpty()
+                || cbCliente.getSelectionModel().isEmpty() || cbEntregador.getSelectionModel().isEmpty()) {
             //notifica os campos em branco
             Alert alerta = new Alert(Alert.AlertType.WARNING,
-                    "Todos os campos devem sem preenchidos!", 
+                    "Todos os campos devem sem preenchidos!",
                     ButtonType.OK);
             alerta.showAndWait();
             //retorna falso
-            condicao = false;       
+            condicao = false;
         }
         return condicao;
     }
-    
-    public void limpaCampos(){
+
+    public void limpaCampos() {
         txtDesc.setText("");
         txtValor.setText("");
         cbCliente.getSelectionModel().clearSelection();
-        cbEntregador.getSelectionModel().clearSelection();                
+        cbEntregador.getSelectionModel().clearSelection();
     }
-    
+
     //metodo para obter somente o id do cliente, sem o nome
     //já que no método toString da classe Cliente foi usado
     //concatenação para melhorar a exibição na comboBox
     private int obterClienteId() {
-    String clienteSelecionado = cbCliente.getValue().toString();
-    String[] partes = clienteSelecionado.split(" - ");
-    int clienteId = Integer.parseInt(partes[0]);
-    return clienteId;
-    }        
+        String clienteSelecionado = cbCliente.getValue().toString();
+        String[] partes = clienteSelecionado.split(" - ");
+        int clienteId = Integer.parseInt(partes[0]);
+        return clienteId;
+    }
 }

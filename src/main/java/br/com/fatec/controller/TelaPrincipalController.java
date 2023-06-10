@@ -23,48 +23,53 @@ public class TelaPrincipalController {
 
     @FXML
     private Button btnSair;
-    
+
     @FXML
+    //navega para a tela de gerenciamento de motoboys
     private void btnGerenciarMotoboys_Click(ActionEvent event) {
         String fxml = "TelaGerenciarMotoboys";
-        try {            
-            App.setRoot(fxml);  
-        } catch (IOException ex) {
-            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
-        } 
-    }
-
-    @FXML
-    private void handleBtnGerenciarClientes(ActionEvent event) {
-        String fxml = "TelaGerenciarClientes";
-        try {            
-            App.setRoot(fxml);  
-        } catch (IOException ex) {
-            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
-        } 
-    }
-
-    @FXML
-    private void handleBtnGerenciarPedidos(ActionEvent event) {
-        String fxml = "TelaGerenciarPedidos";
-        try {            
-            App.setRoot(fxml);  
-        } catch (IOException ex) {
-            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
-        } 
-    }
-
-    @FXML
-    private void handleBtnConsultarPedidos(ActionEvent event) {
-        String fxml = "TelaConsultarPedidos";
-        try {            
-            App.setRoot(fxml);  
+        try {
+            App.setRoot(fxml);
         } catch (IOException ex) {
             System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
         }
     }
 
     @FXML
+    //navega para a tela de gerenciamento de clientes
+    private void handleBtnGerenciarClientes(ActionEvent event) {
+        String fxml = "TelaGerenciarClientes";
+        try {
+            App.setRoot(fxml);
+        } catch (IOException ex) {
+            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
+        }
+    }
+
+    @FXML
+    //navega para a tela de gerenciamento de pedidos
+    private void handleBtnGerenciarPedidos(ActionEvent event) {
+        String fxml = "TelaGerenciarPedidos";
+        try {
+            App.setRoot(fxml);
+        } catch (IOException ex) {
+            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
+        }
+    }
+
+    @FXML
+    //navega para a tela de consulta avançada
+    private void handleBtnConsultarPedidos(ActionEvent event) {
+        String fxml = "TelaConsultarPedidos";
+        try {
+            App.setRoot(fxml);
+        } catch (IOException ex) {
+            System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
+        }
+    }
+
+    @FXML
+    //fecha o programa
     private void btnSair_Click(ActionEvent event) {
         Stage stage = (Stage) btnSair.getScene().getWindow();
         stage.close();

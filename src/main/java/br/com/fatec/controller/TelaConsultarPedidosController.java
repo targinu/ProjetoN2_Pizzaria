@@ -39,10 +39,10 @@ public class TelaConsultarPedidosController implements Initializable {
 
     @FXML
     private TableColumn<Pedido, Integer> colClienteId;
-    
+
     @FXML
     private TableColumn<Pedido, String> colClienteNome;
-    
+
     @FXML
     private TableColumn<Pedido, String> colEntregador;
 
@@ -51,13 +51,13 @@ public class TelaConsultarPedidosController implements Initializable {
 
     @FXML
     private Button btnExcluir;
-    
+
     @FXML
     private Button btnRestaurar;
-    
+
     //armazena o pedido selecionado
     private Pedido pedidoSelecionado;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //configurar as colunas da tabela        
@@ -71,23 +71,27 @@ public class TelaConsultarPedidosController implements Initializable {
 
         //preencher a tabela com os pedidos existentes
         tblPedidos.setItems(preencheTabela());
-        
+
         //adiciona o listener para capturar o pedido selecionado na tabela
         tblPedidos.getSelectionModel().selectedItemProperty().addListener((obs, antigoPedido, novoPedido) -> {
             pedidoSelecionado = novoPedido;
-        });     
+        });
 
     }
 
     @FXML
     private void btnExcluir_Click() {
+        //verifica se o pedido está selecionado
         if (pedidoSelecionado != null) {
+            //gera um alerta de confirmação
             Alert confirmacao = new Alert(Alert.AlertType.CONFIRMATION);
             confirmacao.setTitle("Confirmação de exclusão");
             confirmacao.setHeaderText("Tem certeza que deseja excluir o pedido?");
             confirmacao.setContentText("Essa ação não pode ser desfeita.");
 
             Optional<ButtonType> resultado = confirmacao.showAndWait();
+            
+            //se o usuario confirmar a exclusão
             if (resultado.isPresent() && resultado.get() == ButtonType.OK) {
                 PedidosDAO dao = new PedidosDAO();
                 try {
@@ -144,7 +148,7 @@ public class TelaConsultarPedidosController implements Initializable {
         PedidosDAO dao = new PedidosDAO();
         //cria uma list de Pedido
         ObservableList<Pedido> pedidos = FXCollections.observableArrayList();
-        
+
         try {
             //seleciona todos os pedidos da tabela Pedidos e adiciona a uma collection, sem nenhuma condição
             pedidos.addAll(dao.lista(""));
@@ -157,7 +161,6 @@ public class TelaConsultarPedidosController implements Initializable {
         //retorna a collection com os pedidos
         return pedidos;
     }
-    
 
     @FXML
     private void setButtonTrue(MouseEvent event) {

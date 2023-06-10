@@ -1,6 +1,5 @@
 package br.com.fatec;
 
-import br.com.fatec.model.Pedido;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * JavaFX App
@@ -21,10 +19,10 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("TelaPrincipal"));
         stage.setScene(scene);
-        
+
         //trocar o titulo
         stage.setTitle("ADS Pizza");
-        
+
         stage.show();
     }
 
@@ -40,5 +38,5 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-   
+
 }

@@ -15,8 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
-public class TelaGerenciarClientesController implements Initializable{
-    
+public class TelaGerenciarClientesController implements Initializable {
+
     @FXML
     private Button btnPesquisar;
     @FXML
@@ -35,15 +35,15 @@ public class TelaGerenciarClientesController implements Initializable{
     private TextField txtEndereco;
     @FXML
     private TextField txtCidade;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+
     }
 
     @FXML
     private void btnPesquisar_Click(ActionEvent event) {
-        // Verifica se o campo de pesquisa está vazio
+        //verifica se o campo de pesquisa está vazio
         if (txtTelefone.getText().isEmpty()) {
             Alert alerta = new Alert(Alert.AlertType.WARNING,
                     "Por favor, preencha o telefone do cliente e tente novamente.",
@@ -52,15 +52,15 @@ public class TelaGerenciarClientesController implements Initializable{
             return;
         }
 
-        // Cria um objeto Cliente com o telefone preenchido
+        //cria um objeto Cliente com o telefone preenchido
         Cliente cliente = new Cliente();
         cliente.setTelefone(txtTelefone.getText());
 
-        // Cria uma instância do ClienteDAO
+        //cria uma instância do ClienteDAO
         ClienteDAO clienteDAO = new ClienteDAO();
 
         try {
-            // Busca o cliente pelo telefone
+            //busca o cliente pelo telefone
             Cliente clienteEncontrado = clienteDAO.buscaID(cliente);
 
             if (clienteEncontrado == null) {
@@ -69,7 +69,7 @@ public class TelaGerenciarClientesController implements Initializable{
                         ButtonType.OK);
                 alerta.showAndWait();
             } else {
-                // Preenche os campos com os dados do cliente encontrado
+                //preenche os campos com os dados do cliente encontrado
                 txtNome.setText(clienteEncontrado.getNomeCliente());
                 txtTelefone.setText(clienteEncontrado.getTelefone());
                 txtEndereco.setText(clienteEncontrado.getEndereco());
@@ -78,7 +78,7 @@ public class TelaGerenciarClientesController implements Initializable{
         } catch (SQLException ex) {
             System.out.println("Erro ao buscar cliente: " + ex.getMessage());
 
-            // Trata o erro para exibir uma mensagem para o usuário
+            //trata o erro para exibir uma mensagem para o usuário
             switch (ex.getErrorCode()) {
                 default:
                     Alert alerta = new Alert(Alert.AlertType.WARNING,
@@ -93,8 +93,8 @@ public class TelaGerenciarClientesController implements Initializable{
     @FXML
     private void btnCadastrar_Click(ActionEvent event) {
         //verifica se existem campos em branco
-        if (txtNome.getText().isEmpty() || txtTelefone.getText().isEmpty() ||
-                txtEndereco.getText().isEmpty() || txtCidade.getText().isEmpty()) {
+        if (txtNome.getText().isEmpty() || txtTelefone.getText().isEmpty()
+                || txtEndereco.getText().isEmpty() || txtCidade.getText().isEmpty()) {
             Alert alerta = new Alert(Alert.AlertType.WARNING,
                     "Por favor, preencha todos os campos e tente novamente.",
                     ButtonType.OK);
@@ -149,12 +149,11 @@ public class TelaGerenciarClientesController implements Initializable{
         }
     }
 
-    
     @FXML
     private void btnAlterar_Click(ActionEvent event) {
         //verifica se existem campos em branco
-        if (txtNome.getText().isEmpty() || txtTelefone.getText().isEmpty() ||
-                txtEndereco.getText().isEmpty() || txtCidade.getText().isEmpty()) {
+        if (txtNome.getText().isEmpty() || txtTelefone.getText().isEmpty()
+                || txtEndereco.getText().isEmpty() || txtCidade.getText().isEmpty()) {
             Alert alerta = new Alert(Alert.AlertType.WARNING,
                     "Por favor, preencha todos os campos e tente novamente.",
                     ButtonType.OK);
@@ -213,12 +212,12 @@ public class TelaGerenciarClientesController implements Initializable{
             }
         }
     }
-    
+
     @FXML
     private void btnExcluir_Click(ActionEvent event) {
         //verifica se existem campos em branco
-        if (txtNome.getText().isEmpty() || txtTelefone.getText().isEmpty() ||
-                txtEndereco.getText().isEmpty() || txtCidade.getText().isEmpty()) {
+        if (txtNome.getText().isEmpty() || txtTelefone.getText().isEmpty()
+                || txtEndereco.getText().isEmpty() || txtCidade.getText().isEmpty()) {
             Alert alerta = new Alert(Alert.AlertType.WARNING,
                     "Por favor, preencha todos os campos e tente novamente.",
                     ButtonType.OK);
@@ -294,13 +293,13 @@ public class TelaGerenciarClientesController implements Initializable{
         } catch (IOException ex) {
             System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
         }
-    }  
-    
+    }
+
     //metodo para limpar a tela
-    public void limpaCampos(){
+    public void limpaCampos() {
         txtNome.setText("");
         txtTelefone.setText("");
         txtEndereco.setText("");
-        txtCidade.setText("");       
-    }    
+        txtCidade.setText("");
+    }
 }

@@ -8,20 +8,20 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fatec.controller.TelaPrincipalController">
-   <children>
-      <ImageView fitHeight="120.0" fitWidth="160.0" layoutX="246.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@ads_pizza_logo.png" />
-         </image>
-      </ImageView>
-      <VBox alignment="CENTER" layoutX="200.0" layoutY="144.0" spacing="20.0" stylesheets="@telaprincipal.css">
-         <children>
-            <Button fx:id="btnGerenciarMotoboys" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" text="Gerenciar Motoboys" onAction="#btnGerenciarMotoboys_Click" />
-            <Button fx:id="btnGerenciarClientes" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" text="Gerenciar Clientes" onAction="#handleBtnGerenciarClientes" />
-            <Button fx:id="btnGerenciarPedidos" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" text="Gerenciar Pedidos" onAction="#handleBtnGerenciarPedidos" />
-            <Button fx:id="btnConsultarPedidos" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" text="Consultar Pedidos" onAction="#handleBtnConsultarPedidos" />
-            <Button fx:id="btnSair" minHeight="30.0" minWidth="100.0" mnemonicParsing="false" text="Sair" onAction="#btnSair_Click" />            
-         </children>
-      </VBox>
-   </children>
+    <children>
+        <ImageView fitHeight="120.0" fitWidth="160.0" layoutX="246.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@ads_pizza_logo.png" />
+            </image>
+        </ImageView>
+        <VBox alignment="CENTER" layoutX="200.0" layoutY="144.0" spacing="20.0" stylesheets="@telaprincipal.css">
+            <children>
+                <Button fx:id="btnGerenciarMotoboys" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" text="Gerenciar Motoboys" onAction="#btnGerenciarMotoboys_Click" />
+                <Button fx:id="btnGerenciarClientes" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" text="Gerenciar Clientes" onAction="#handleBtnGerenciarClientes" />
+                <Button fx:id="btnGerenciarPedidos" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" text="Gerenciar Pedidos" onAction="#handleBtnGerenciarPedidos" />
+                <Button fx:id="btnConsultarPedidos" minHeight="30.0" minWidth="200.0" mnemonicParsing="false" text="Consultar Pedidos" onAction="#handleBtnConsultarPedidos" />
+                <Button fx:id="btnSair" minHeight="30.0" minWidth="100.0" mnemonicParsing="false" text="Sair" onAction="#btnSair_Click" />            
+            </children>
+        </VBox>
+    </children>
 </AnchorPane>

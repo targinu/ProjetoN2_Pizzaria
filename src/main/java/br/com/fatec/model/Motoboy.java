@@ -1,15 +1,17 @@
 package br.com.fatec.model;
+
 import java.util.Objects;
 
 public class Motoboy {
+
     private String nomeEntregador;
     private String placaMoto;
-    
+
     public Motoboy(String nome, String placa) {
         nomeEntregador = nome;
         placaMoto = placa;
     }
-          
+
     public String getNomeEntregador() {
         return nomeEntregador;
     }
@@ -17,7 +19,7 @@ public class Motoboy {
     public void setNomeEntregador(String nomeEntregador) {
         this.nomeEntregador = nomeEntregador;
     }
-    
+
     public String getPlacaMoto() {
         return placaMoto;
     }
@@ -34,7 +36,7 @@ public class Motoboy {
             }
         }
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -53,16 +55,15 @@ public class Motoboy {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        
+
         final Motoboy other = (Motoboy) obj;
         return placaMoto.equals(other.placaMoto);
-        
+
         /**
-        final Motoboy other = (Motoboy) obj;
-        if (!Objects.equals(this.placaMoto, other.placaMoto)) {
-            return false;
-        }
-        return true;**/
+         * final Motoboy other = (Motoboy) obj; if
+         * (!Objects.equals(this.placaMoto, other.placaMoto)) { return false; }
+         * return true;*
+         */
     }
 
     @Override

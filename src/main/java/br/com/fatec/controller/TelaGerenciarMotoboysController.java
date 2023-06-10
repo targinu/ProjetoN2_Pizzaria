@@ -17,44 +17,44 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 public class TelaGerenciarMotoboysController implements Initializable {
-    
-     //variaveis auxiliares usadas para alterar objeto
+
+    //variaveis auxiliares usadas para alterar objeto
     static String nomeAux, placaAux;
     //cria uma coleção para armazenar todos os motoboys que aparecerão na combo e cria alguns objetos com valores defaults
     Motoboy m1 = new Motoboy("Bruno", "ABC1A23");
     Motoboy m2 = new Motoboy("Carlos", "DEF5B67");
     Motoboy m3 = new Motoboy("Zeca", "GHI9C01");
-    
+
     //Observable list Motoboys
     private ObservableList<Motoboy> motoboys = FXCollections.observableArrayList(m1, m2, m3);
 
     @FXML
     private TextField txtPlaca;
-    
+
     @FXML
     private TextField txtNome;
-    
+
     @FXML
     private TextField txtPesquisa;
-    
+
     @FXML
     private ComboBox<Motoboy> cbMotoboy;
-    
+
     @FXML
     private Button btnSalvar;
-    
+
     @FXML
     private Button btnCadastrar;
-     
+
     @FXML
     private Button btnExcluir;
-    
+
     @FXML
     private Button btnAlterar;
-    
+
     @FXML
     private Button btnVoltar;
-    
+
     @FXML
     private Button btnPesquisar;
 
@@ -117,7 +117,7 @@ public class TelaGerenciarMotoboysController implements Initializable {
         //limpa os campos
         limpaCampos();
     }
-    
+
     @FXML
     private void btnExcluir_Click(ActionEvent event) {
         //verifica se existem campos em branco
@@ -154,7 +154,7 @@ public class TelaGerenciarMotoboysController implements Initializable {
                 ButtonType.OK);
         alerta.showAndWait();
     }
-    
+
     @FXML
     private void btnAlterar_Click(ActionEvent event) {
         //verifica se o usuário já salvou as informações
@@ -193,21 +193,19 @@ public class TelaGerenciarMotoboysController implements Initializable {
                 ButtonType.OK);
         alerta.showAndWait();
     }
-    
+
     @FXML
     private void btnSalvar_Click(ActionEvent event) {
         //verifica se existem campos em branco
-        if(txtPlaca.getText().isEmpty() || txtNome.getText().isEmpty()){
+        if (txtPlaca.getText().isEmpty() || txtNome.getText().isEmpty()) {
             //notifica o usuário dos campos vazios
             Alert alerta = new Alert(Alert.AlertType.WARNING,
                     "Existem campos em branco que devem ser preenchidos!",
                     ButtonType.OK);
             alerta.showAndWait();
             return;
-        }
-
-        //verifica se a placa tem exatamente 7 caracteres
-        else if(txtPlaca.getText().length() != 7){
+        } //verifica se a placa tem exatamente 7 caracteres
+        else if (txtPlaca.getText().length() != 7) {
             Alert alerta = new Alert(Alert.AlertType.WARNING,
                     "A placa deve conter exatamente 7 caracteres!",
                     ButtonType.OK);
@@ -222,11 +220,11 @@ public class TelaGerenciarMotoboysController implements Initializable {
 
         //notifica o usuário
         Alert alerta = new Alert(Alert.AlertType.INFORMATION,
-                    "O elemento foi salvo e está pronto para mudança",
-                    ButtonType.OK);
+                "O elemento foi salvo e está pronto para mudança",
+                ButtonType.OK);
         alerta.showAndWait();
     }
-    
+
     @FXML
     private void btnPesquisar_Click(ActionEvent event) {
         String termoPesquisa = txtPesquisa.getText().toLowerCase();
@@ -254,7 +252,7 @@ public class TelaGerenciarMotoboysController implements Initializable {
             txtPlaca.setText("");
         }
     }
-    
+
     //volta para a tela principal
     @FXML
     private void btnVoltar_Click(ActionEvent event) {
@@ -265,8 +263,8 @@ public class TelaGerenciarMotoboysController implements Initializable {
         } catch (IOException ex) {
             System.out.println("Ocorreu o seguinte erro: " + ex.getMessage());
         }
-    }    
-        
+    }
+
     //metodo para limpar a tela
     public void limpaCampos() {
         //limpa campos e seleciona o primeiro elemento da comboBox

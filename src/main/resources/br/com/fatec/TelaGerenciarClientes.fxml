@@ -13,58 +13,58 @@
 <?import javafx.geometry.Insets?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fatec.controller.TelaGerenciarClientesController">
-   <children>
-      <ImageView fitHeight="119.0" fitWidth="116.0" layoutX="242.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@ads_pizza_logo.png" />
-         </image>
-      </ImageView>
-      <VBox fx:id="vbox" alignment="CENTER" layoutX="123.0" layoutY="126.0" prefHeight="274.0" prefWidth="354.0" spacing="20.0">
-         <children>
-            <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
-               <children>
-                  <Label stylesheets="@telapizzas.css" text="Digite o nome do Cliente:       " textFill="WHITE" />
-                  <TextField fx:id="txtNome" minHeight="20.0" prefHeight="20.0" prefWidth="100.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
-               <children>
-                  <Label stylesheets="@telapizzas.css" text="Digite o telefone do Cliente:   " textFill="WHITE" />
-                  <TextField fx:id="txtTelefone" minHeight="20.0" prefHeight="20.0" prefWidth="100.0" />
-                  <Button fx:id="btnPesquisar" mnemonicParsing="false" onAction="#btnPesquisar_Click" text="Pesquisa" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
-               <children>
-                  <Label stylesheets="@telapizzas.css" text="Digite o endereço do Cliente: " textFill="WHITE" />
-                  <TextField fx:id="txtEndereco" minHeight="20.0" prefHeight="20.0" prefWidth="100.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
-               <children>
-                  <Label stylesheets="@telapizzas.css" text="Digite a cidade do Cliente:      " textFill="WHITE" />
-                  <TextField fx:id="txtCidade" minHeight="20.0" prefHeight="20.0" prefWidth="100.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="38.0" prefWidth="586.0" spacing="10.0">
-               <children>
-                  <Button fx:id="btnCadastrar" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" onAction="#btnCadastrar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Cadastrar">
-                  </Button>
-                  <Button fx:id="btnAlterar" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" onAction="#btnAlterar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Alterar" />
-                  <Button fx:id="btnExcluir" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" onAction="#btnExcluir_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Excluir" />
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </HBox>
-         </children>
-         <stylesheets>
-            <URL value="@telapizzas.css" />
-         </stylesheets>         
-      </VBox>
-      <Button fx:id="btnVoltar" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="17.0" minHeight="25.0" onAction="#btnVoltar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Voltar" />      
-   </children>
-   <stylesheets>
-      <URL value="@telapizzas.css" />
-   </stylesheets>
+    <children>
+        <ImageView fitHeight="119.0" fitWidth="116.0" layoutX="242.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@ads_pizza_logo.png" />
+            </image>
+        </ImageView>
+        <VBox fx:id="vbox" alignment="CENTER" layoutX="123.0" layoutY="126.0" prefHeight="274.0" prefWidth="354.0" spacing="20.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
+                    <children>
+                        <Label stylesheets="@telapizzas.css" text="Digite o nome do Cliente:       " textFill="WHITE" />
+                        <TextField fx:id="txtNome" minHeight="20.0" prefHeight="20.0" prefWidth="100.0" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
+                    <children>
+                        <Label stylesheets="@telapizzas.css" text="Digite o telefone do Cliente:   " textFill="WHITE" />
+                        <TextField fx:id="txtTelefone" minHeight="20.0" prefHeight="20.0" prefWidth="100.0" />
+                        <Button fx:id="btnPesquisar" mnemonicParsing="false" onAction="#btnPesquisar_Click" text="Pesquisa" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
+                    <children>
+                        <Label stylesheets="@telapizzas.css" text="Digite o endereço do Cliente: " textFill="WHITE" />
+                        <TextField fx:id="txtEndereco" minHeight="20.0" prefHeight="20.0" prefWidth="100.0" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10" stylesheets="@telapizzas.css">
+                    <children>
+                        <Label stylesheets="@telapizzas.css" text="Digite a cidade do Cliente:      " textFill="WHITE" />
+                        <TextField fx:id="txtCidade" minHeight="20.0" prefHeight="20.0" prefWidth="100.0" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="38.0" prefWidth="586.0" spacing="10.0">
+                    <children>
+                        <Button fx:id="btnCadastrar" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" onAction="#btnCadastrar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Cadastrar">
+                        </Button>
+                        <Button fx:id="btnAlterar" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" onAction="#btnAlterar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Alterar" />
+                        <Button fx:id="btnExcluir" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" onAction="#btnExcluir_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Excluir" />
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+            </children>
+            <stylesheets>
+                <URL value="@telapizzas.css" />
+            </stylesheets>         
+        </VBox>
+        <Button fx:id="btnVoltar" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="17.0" minHeight="25.0" onAction="#btnVoltar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Voltar" />      
+    </children>
+    <stylesheets>
+        <URL value="@telapizzas.css" />
+    </stylesheets>
 </AnchorPane>

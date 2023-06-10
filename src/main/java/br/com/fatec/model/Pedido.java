@@ -3,12 +3,13 @@ package br.com.fatec.model;
 import java.util.Objects;
 
 public class Pedido {
+
     private int idPedido;
     private String descricao;
     private double valor;
     private int clienteId;
     private String motoboyId;
-    
+
     //usado na busca avançada
     private String clienteNome;
     private String entregadorNome;
@@ -52,7 +53,7 @@ public class Pedido {
     public void setMotoboyId(String motoboyId) {
         this.motoboyId = motoboyId;
     }
-    
+
     public String getClienteNome() {
         return clienteNome;
     }
@@ -68,7 +69,7 @@ public class Pedido {
     public void setEntregadorNome(String entregadorNome) {
         this.entregadorNome = entregadorNome;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -87,24 +88,24 @@ public class Pedido {
         if (getClass() != obj.getClass()) {
             return false;
         }
-                
+
         final Pedido other = (Pedido) obj;
         if (!Objects.equals(this.idPedido, other.idPedido)) {
             return false;
         }
-        return Objects.equals(this.idPedido, other.idPedido);    
+        return Objects.equals(this.idPedido, other.idPedido);
     }
 
     //construtor padrão
     public Pedido() {
-        
+
     }
 
     public Pedido(int idPedido) {
         this.idPedido = idPedido;
     }
-    
-    public Pedido( String descricao, double valor, int clienteId, String motoboyId) {
+
+    public Pedido(String descricao, double valor, int clienteId, String motoboyId) {
         this.descricao = descricao;
         this.valor = valor;
         this.clienteId = clienteId;
@@ -119,10 +120,5 @@ public class Pedido {
         this.clienteId = clienteId;
         this.motoboyId = motoboyId;
     }
-    
-    
-    
-    
-    
-    
+
 }

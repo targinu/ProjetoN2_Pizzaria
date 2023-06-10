@@ -3,6 +3,7 @@ package br.com.fatec.model;
 import java.util.Objects;
 
 public class Cliente {
+
     private int idCliente;
     private String nomeCliente;
     private String telefone;
@@ -74,7 +75,7 @@ public class Cliente {
         }
         return Objects.equals(this.telefone, other.telefone);
     }
-    
+
     //construtor padrão
     public Cliente() {
     }
@@ -87,12 +88,12 @@ public class Cliente {
         this.endereco = endereco;
         this.cidade = cidade;
     }
-    
+
     //construtor telefone
-    public Cliente (String telefone){
+    public Cliente(String telefone) {
         this.telefone = telefone;
     }
-       
+
     //retorna os dados para a cbCliente como string
     @Override
     public String toString() {

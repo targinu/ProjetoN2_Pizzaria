@@ -20,7 +20,7 @@ public class Banco {
         senha = "";
         servidor = "localhost";
         porta = 3306;
-        
+
         /*
         //sqlServer
         bancoDados = "Loja";
@@ -28,23 +28,21 @@ public class Banco {
         senha = "123456";
         servidor = "localhost";
         porta = 1433;
-        */
+         */
     }
 
     //métodos
     public static void conectar() throws SQLException {
         //mysql
-        String url = "jdbc:mysql://" + servidor +
-                     ":" + porta + "/" + bancoDados;
+        String url = "jdbc:mysql://" + servidor
+                + ":" + porta + "/" + bancoDados;
 
         //MariaDB
         //String url = "jdbc:mariadb://" + servidor +
         //             ":" + porta + "/" + bancoDados;
-        
         //sqlServer
         //String url = "jdbc:sqlserver://" + servidor
         //        + ":" + porta + ";databaseName=" + bancoDados;
-
         conexao = DriverManager.getConnection(url, usuario, senha);
     }
 
@@ -52,8 +50,8 @@ public class Banco {
         conexao.close();
     }
 
-    public static java.sql.Connection obterConexao() 
-                throws SQLException {
+    public static java.sql.Connection obterConexao()
+            throws SQLException {
         if (conexao == null) {
             throw new SQLException("Conexão está fechada..");
         } else {

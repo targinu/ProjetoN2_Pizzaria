@@ -14,35 +14,35 @@
 <?import javafx.geometry.Insets?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.fatec.controller.TelaConsultarPedidosController">
-   <children>
-      <ImageView fitHeight="119.0" fitWidth="116.0" layoutX="242.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@ads_pizza_logo.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="btnVoltar" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="17.0" minHeight="25.0" onAction="#btnVoltar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Voltar" />
-      <TableView fx:id="tblPedidos" layoutX="25.0" layoutY="172.0" onMouseClicked="#setButtonTrue" prefHeight="214.0" prefWidth="550.0">
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-         <columns>
-            <TableColumn fx:id="colPedidoId" prefWidth="10.0" text="ID" />
-            <TableColumn fx:id="colDesc" prefWidth="162.0" text="Descrição" />
-            <TableColumn fx:id="colValor" prefWidth="25.0" text="Valor" />
-            <TableColumn fx:id="colClienteId" prefWidth="15.0" text="ClienteID" />
-            <TableColumn fx:id="colClienteNome" prefWidth="15.0" text="Nome Cliente" />
-            <TableColumn fx:id="colEntregador" prefWidth="60.0" text="Entregador" />
-            <TableColumn fx:id="colPlaca" prefWidth="60.0" text="Placa Motoboy" />
-         </columns>
-      </TableView>
-      <HBox layoutX="25.0" layoutY="136.0" prefHeight="31.0" prefWidth="576.0" spacing="10.0">
-         <children>
-            <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#btnExcluir_Click" text="Excluir" />
-            <Button fx:id="btnRestaurar" alignment="CENTER" contentDisplay="RIGHT" minHeight="25.0" onAction="#btnRestaurar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Restaurar Tabela" />
-         </children>
-      </HBox>      
-   </children>
-   <stylesheets>
-      <URL value="@telapizzas.css" />
-   </stylesheets>
+    <children>
+        <ImageView fitHeight="119.0" fitWidth="116.0" layoutX="242.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@ads_pizza_logo.png" />
+            </image>
+        </ImageView>
+        <Button fx:id="btnVoltar" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="17.0" minHeight="25.0" onAction="#btnVoltar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Voltar" />
+        <TableView fx:id="tblPedidos" layoutX="25.0" layoutY="172.0" onMouseClicked="#setButtonTrue" prefHeight="214.0" prefWidth="550.0">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+            <columns>
+                <TableColumn fx:id="colPedidoId" prefWidth="10.0" text="ID" />
+                <TableColumn fx:id="colDesc" prefWidth="162.0" text="Descrição" />
+                <TableColumn fx:id="colValor" prefWidth="25.0" text="Valor" />
+                <TableColumn fx:id="colClienteId" prefWidth="15.0" text="ClienteID" />
+                <TableColumn fx:id="colClienteNome" prefWidth="15.0" text="Nome Cliente" />
+                <TableColumn fx:id="colEntregador" prefWidth="60.0" text="Entregador" />
+                <TableColumn fx:id="colPlaca" prefWidth="60.0" text="Placa Motoboy" />
+            </columns>
+        </TableView>
+        <HBox layoutX="25.0" layoutY="136.0" prefHeight="31.0" prefWidth="576.0" spacing="10.0">
+            <children>
+                <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#btnExcluir_Click" text="Excluir" />
+                <Button fx:id="btnRestaurar" alignment="CENTER" contentDisplay="RIGHT" minHeight="25.0" onAction="#btnRestaurar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Restaurar Tabela" />
+            </children>
+        </HBox>      
+    </children>
+    <stylesheets>
+        <URL value="@telapizzas.css" />
+    </stylesheets>
 </AnchorPane>
