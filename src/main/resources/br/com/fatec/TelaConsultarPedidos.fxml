@@ -26,7 +26,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
          <columns>
-            <TableColumn fx:id="colPedidoId" prefWidth="20.0" text="ID" />
+            <TableColumn fx:id="colPedidoId" prefWidth="10.0" text="ID" />
             <TableColumn fx:id="colDesc" prefWidth="162.0" text="Descrição" />
             <TableColumn fx:id="colValor" prefWidth="25.0" text="Valor" />
             <TableColumn fx:id="colClienteId" prefWidth="15.0" text="ClienteID" />
@@ -37,7 +37,6 @@
       </TableView>
       <HBox layoutX="25.0" layoutY="136.0" prefHeight="31.0" prefWidth="576.0" spacing="10.0">
          <children>
-            <Button fx:id="btnAlterar" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" onAction="#btnAlterar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Alterar" />
             <Button fx:id="btnExcluir" mnemonicParsing="false" onAction="#btnExcluir_Click" text="Excluir" />
             <Button fx:id="btnRestaurar" alignment="CENTER" contentDisplay="RIGHT" minHeight="25.0" onAction="#btnRestaurar_Click" prefHeight="25.0" stylesheets="@telapizzas.css" text="Restaurar Tabela" />
          </children>

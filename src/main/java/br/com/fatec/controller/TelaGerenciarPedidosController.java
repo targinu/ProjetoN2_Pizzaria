@@ -54,34 +54,6 @@ public class TelaGerenciarPedidosController implements Initializable {
     @FXML
     private Button btnVoltar;
     
-    //testando
-    private Pedido pedidoSelecionado;
-    
-     public void initData(Pedido pedidoSelecionado) {
-        this.pedidoSelecionado = pedidoSelecionado;
-
-        //atualiza a interface da tela com os dados do pedido
-        txtId.setText(String.valueOf(pedidoSelecionado.getIdPedido()));
-        txtDesc.setText(pedidoSelecionado.getDescricao());
-        txtValor.setText(String.valueOf(pedidoSelecionado.getValor()));
-
-        //atualiza a seleção da combobox de clientes
-        for (Cliente cliente : cbCliente.getItems()) {
-            if (cliente.getIdCliente() == pedidoSelecionado.getClienteId()) {
-                cbCliente.getSelectionModel().select(cliente);
-                break;
-            }
-        }
-
-        //atualiza a seleção da combobox de entregadores
-        for (Motoboy motoboy : cbEntregador.getItems()) {
-            if (motoboy.getPlacaMoto().equals(pedidoSelecionado.getMotoboyId())) {
-                cbEntregador.getSelectionModel().select(motoboy);
-                break;
-            }
-        }
-    }
-    
     Motoboy m1 = new Motoboy("Bruno","ABC1A23");
     Motoboy m2 = new Motoboy("Carlos","DEF5B67");
     Motoboy m3 = new Motoboy("Zeca","GHI9C01");
@@ -116,11 +88,6 @@ public class TelaGerenciarPedidosController implements Initializable {
         
         cbEntregador.setItems(motoboys);
         cbCliente.setItems(preencheTabela());
-
-        // Verifica se há um pedido selecionado e inicializa os dados da tela
-        if (pedidoSelecionado != null) {
-            initData(pedidoSelecionado);
-        }        
         
     }
     
@@ -399,30 +366,5 @@ public class TelaGerenciarPedidosController implements Initializable {
     String[] partes = clienteSelecionado.split(" - ");
     int clienteId = Integer.parseInt(partes[0]);
     return clienteId;
-    }
-    
-     public void setPedidoSelecionado(Pedido pedido) {
-        pedidoSelecionado = pedido;
-        // atualiza os campos da tela com os dados do pedido
-        txtId.setText(String.valueOf(pedido.getIdPedido()));
-        txtDesc.setText(pedido.getDescricao());
-        txtValor.setText(String.valueOf(pedido.getValor()));
-
-        // atualiza a seleção da combobox de clientes
-        for (Cliente cliente : cbCliente.getItems()) {
-            if (cliente.getIdCliente() == pedido.getClienteId()) {
-                cbCliente.getSelectionModel().select(cliente);
-                break;
-            }
-        }
-
-        // atualiza a seleção da combobox de entregadores
-        for (Motoboy motoboy : cbEntregador.getItems()) {
-            if (motoboy.getPlacaMoto().equals(pedido.getMotoboyId())) {
-                cbEntregador.getSelectionModel().select(motoboy);
-                break;
-            }
-        }
-    }
-    
+    }        
 }
